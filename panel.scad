@@ -101,8 +101,97 @@ module PlateWithKnobs(){
 }
 
 
-difference()
-{
-    PlateWithKnobs();
-    translate([0,27,-3]){linear_extrude(height=7){square(size=[230.3,115.5]);};};
+module screenWithRod(){
+    union(){
+        cube(size=[98,1.7+31,60.20]);
+        translate([0,1.7+31,10.6]){cube(size=[98,9.4,40.5]);}
+    }
+    translate([2.5,10+31,3.8]){
+        rotate(a=[90,0,0]){
+            cylinder(r=1.5,h=115, $fn=200);
+        }
+    }
+    translate([99-2-1.7,10+31,2.9]){
+        rotate(a=[90,0,0]){
+            cylinder(r=1.5,h=115, $fn=200);
+        }
+    }
+    translate([2.5,10+31,60.2-1.5]){
+        rotate(a=[90,0,0]){
+            cylinder(r=1.5,h=115, $fn=200);
+        }
+    }
+    translate([99-4,10+31,60.2-1.5]){
+        rotate(a=[90,0,0]){
+            cylinder(r=1.5,h=115, $fn=200);
+        }
+    }
 }
+
+module screen(){
+    difference(){
+        difference(){
+            difference(){
+                difference(){
+                    union(){
+                        cube(size=[98,1.7+31,60.20]);
+                        translate([0,1.7+31,10.6]){cube(size=[98,9.4,40]);}
+                    }
+                    translate([1.5,10+31,1.5]){
+                        rotate(a=[90,0,0]){
+                            cylinder(r=1,h=115, $fn=200);
+                        }
+                    }
+                }
+                translate([98-1.5,10+31,1.5]){
+                    rotate(a=[90,0,0]){
+                        cylinder(r=1,h=115, $fn=200);
+                    }
+                }
+            }
+            translate([1.5,10+31,60.2-1.5]){
+                rotate(a=[90,0,0]){
+                    cylinder(r=1,h=115, $fn=200);
+                }
+            }
+        }
+        translate([98-1.5,10+31,60.2-1.5]){
+            rotate(a=[90,0,0]){
+                cylinder(r=1,h=115, $fn=200);
+            }
+        }
+    }
+}
+
+
+//difference()
+//{
+//    PlateWithKnobs();
+//    translate([0,27,-3]){linear_extrude(height=7){square(size=[230.3,115.5]);};};
+//}
+//
+
+module screenHolder(){
+    difference(){
+        difference(){
+            difference(){
+                translate([120,85,-57]){
+                    sphere(d = 165);
+                }
+                translate([10,0,-200]){
+                    cube([200,200,200]);
+                }
+            }
+            translate([94+(150/2),55,-30]){
+                rotate(a=[90,0,180]){
+                    screenWithRod();
+                }
+            }
+        }
+        translate([10,0,12]){
+            cube([200,200,200]);
+        }
+    }
+}
+screenHolder();
+//PlateWithKnobs();
