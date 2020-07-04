@@ -176,7 +176,7 @@ module screenHolder(){
         difference(){
             difference(){
                 translate([120,85,-57]){
-                    sphere(d = 165);
+                    sphere(d = 165, $fn=200);
                 }
                 translate([10,0,-200]){
                     cube([200,200,200]);
@@ -193,5 +193,13 @@ module screenHolder(){
         }
     }
 }
-screenHolder();
-//PlateWithKnobs();
+
+union(){
+    screenHolder();
+    difference(){
+        PlateWithKnobs();
+        translate([120,85,-57]){
+            sphere(d = 165);
+        }
+    }
+}
