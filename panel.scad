@@ -195,16 +195,56 @@ module screenHolder(){
 }
 
 difference(){
-    union(){
-        screenHolder();
+    difference(){
         difference(){
-            PlateWithKnobs();
-            translate([120,85,-57]){
-                sphere(d = 165);
+            difference(){
+                difference(){
+                    difference(){
+                        union(){
+                            screenHolder();
+                            difference(){
+                                PlateWithKnobs();
+                                translate([120,85,-57]){
+                                    sphere(d = 165);
+                                }
+                            }
+                        }
+
+
+                        translate([42.5,50,-3]){cylinder(r=(7)/2,h=15, $fn=200);}
+                    }
+
+                    translate([201.5,27,.5]){
+                        linear_extrude(height=5){
+                            import("icons/Power.svg", dpi = 850);
+                        }
+                    }
+                }
+                translate([60,25,.5]){
+                    linear_extrude(height=5){
+                        import("icons/Artboard_14-512.svg", dpi = 1200);
+                    }
+                }
+            }
+            translate([153,25,.5]){
+                linear_extrude(height=5){
+                    import("icons/RGB_color_model.svg", dpi = 2000);
+                }
+            }
+        }
+        translate([15+23,12,.5]){
+            linear_extrude(height=5){
+                import("icons/bluetooth.svg", dpi = 6000);
             }
         }
     }
-
-
-    translate([42.5,50,-3]){cylinder(r=(7)/2,h=15, $fn=200);}
+    translate([10,15+23,.5]){
+        linear_extrude(height=5){
+            text("MPD", size=7);
+        }
+    }
 }
+
+//translate([30,90,0]){
+//    import("/tmp/Philco_knob.stl");
+//}
