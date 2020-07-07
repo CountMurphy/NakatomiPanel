@@ -194,12 +194,17 @@ module screenHolder(){
     }
 }
 
-union(){
-    screenHolder();
-    difference(){
-        PlateWithKnobs();
-        translate([120,85,-57]){
-            sphere(d = 165);
+difference(){
+    union(){
+        screenHolder();
+        difference(){
+            PlateWithKnobs();
+            translate([120,85,-57]){
+                sphere(d = 165);
+            }
         }
     }
+
+
+    translate([42.5,50,-3]){cylinder(r=(7)/2,h=15, $fn=200);}
 }
