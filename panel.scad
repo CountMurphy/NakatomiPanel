@@ -211,7 +211,7 @@ difference(){
                         }
 
 
-                        translate([42.5,50,-3]){cylinder(r=(7)/2,h=15, $fn=200);}
+                        translate([42.5,85,-3]){cylinder(r=(7)/2,h=15, $fn=200);}
                     }
 
                     translate([201.5,27,.5]){
@@ -226,7 +226,7 @@ difference(){
                     }
                 }
             }
-            translate([153,25,.5]){
+            translate([153,28,.5]){
                 linear_extrude(height=5){
                     import("icons/RGB_color_model.svg", dpi = 2000);
                 }
